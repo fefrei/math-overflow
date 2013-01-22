@@ -1,0 +1,16 @@
+application: math-overflow
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /math-overflow-preview/
+  static_files: frontend/index.html
+  upload: frontend/index.html
+- url: /math-overflow-preview/cache.manifest
+  static_files: frontend/cache.manifest
+  upload: frontend/cache.manifest
+  mime_type: text/cache-manifest
+- url: /math-overflow-preview/
+  static_dir: frontend

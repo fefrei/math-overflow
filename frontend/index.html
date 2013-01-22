@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" manifest="cache.manifest">
+<head>
+    <title>MathOverflow</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link href="./style.css" rel="stylesheet" type="text/css" />
+    <link href="./src/jquery-ui-1.9.2.custom.min.css" rel="stylesheet" type="text/css" />
+    <link href="./style.css" rel="stylesheet" type="text/css" />
+    <link rel="apple-touch-icon" sizes="144x144" href="./src/apple-touch-icons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./src/apple-touch-icons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./src/apple-touch-icons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="./src/apple-touch-icons/apple-touch-icon-57x57.png">
+    <link href="./src/apple-touch-startup-images/iPhone.png" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)" rel="apple-touch-startup-image">
+    <link href="./src/apple-touch-startup-images/iPhone-Retina.png" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+    <link href="./src/apple-touch-startup-images/iPhone-Long-Retina.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+    <link href="./src/apple-touch-startup-images/iPad-Portrait.png" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" rel="apple-touch-startup-image">
+    <link href="./src/apple-touch-startup-images/iPad-Landscape.png" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)" rel="apple-touch-startup-image">
+    <link href="./src/apple-touch-startup-images/iPad-Portrait-Retina.png" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+    <link href="./src/apple-touch-startup-images/iPad-Landscape-Retina.png" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+    <link rel="icon" href="./src/favicon.ico" type="image/x-icon">
+    <script src="./src/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="./src/jquery-ui-1.9.2.custom.min.js" type="text/javascript"></script>
+    <script src="./src/jquery.ui.touch-punch.min.js" type="text/javascript"></script>
+    <script src="./src/three.min.js" type="text/javascript"></script>
+    <script src="./src/TrackballControls.js"></script>
+    <script src="./src/parser.js"></script>
+    <script src="./src/examples.js"></script>
+    <script src="./script.js"></script>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="controls">
+            <div id="c_inner">
+                <div class="group">
+                    <div class="group">
+                        <img src="./src/formula.png" class="icon" />
+                        f : [<input id="begin" type="text" value="0"></input>,
+                        <input id="end" type="text" value="1"></input>] -&rsaquo; R<sup>3</sup>, 
+                    </div>
+                    <div class="group">
+                        f(t) = 
+    					(<input id="fX" type="text" autocorrect="off" autocapitalize="off" value="1*cos(2*pi*t * (4+a))" class="formula"></input>,
+                        <input id="fY" type="text" autocorrect="off" autocapitalize="off" value="1*sin(2*pi*t * (4+b))" class="formula"></input>,
+                        <input id="fZ" type="text" autocorrect="off" autocapitalize="off" value="(4+c)*t" class="formula"> </input>
+                        )  &nbsp;&nbsp;
+                    </div>
+                    <div class="group">
+                        Step:<input id="step" type="text" value="0.01"></input>
+                    </div>
+                </div>
+
+                <div class="group">
+                    <button id="enter" type="button" value="draw" title='Draw'>
+                        <img src='./src/draw.png' alt='Draw' /></button>
+                    <input type="checkbox" id="grid"><label for="grid" checked="checked" title='Show/Hide Coordinate Grid'><img src='./src/grid.png' alt='Coordinate Grid' /></label></input>
+                    <button id="export" type="button" value="export" title="Export">
+                        <label for="export">
+                            <img src='./src/export.png' alt='Export' /></label></button>
+                    <button id="push" type="button" value="push" title='Save Curve'>
+                        <img src='./src/save.png' alt='Save' title='Save current curve' /></button>
+                    <button id="saved" type="button" value="saved" title='See saved curves'>
+                        <label for="saved">
+                            <img src='./src/restore.png' alt='Saved Curves' /></label></button>
+                    <button id="examples" type="button" value="examples" title='Select an Example'>
+                        <label for="examples">
+                            <img src='./src/examples.png' alt='Examples' /></label></button>
+                    <button id="camera" type="button" value="camera" title='Move camera to best view'>
+                        <label for="camera">
+                            <img src='./src/camera.png' alt='Camera' /></label></button>
+                    <button id="help" type="button" value="help" title='Open Documentation'>
+                        <label for="help">
+                            <img src='./src/help.png' alt='Help' /></label></button>
+                </div>
+                <div class="group">
+                    <img src="./src/variable.png" class="icon" />
+                    <div class="group">
+                        a (<span id="valA">0</span>):
+                    <div id="varA"></div>
+                        ;
+                    </div>
+                    <div class="group">
+                        b (<span id="valB">0</span>):
+                    <div id="varB"></div>
+                        ;
+                    </div>
+                    <div class="group">
+                        c (<span id="valC">0</span>):
+                    <div id="varC"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="c_show_hide">
+                <button id="showhide" type="button"></button>
+            </div>
+        </div>
+        <div id="savedDialog">
+            <ul id="curveList">
+            </ul>
+        </div>
+        <div id="exampleDialog">
+            <ul id="exampleList">
+            </ul>
+        </div>
+        <div id="supportedTokensDialog">
+            <dl>
+                <dt>sin(x)</dt>
+                <dd>Sine of x (x is in radians)</dd>
+                <dt>cos(x)</dt>
+                <dd>Cosine of x (x is in radians)</dd>
+                <dt>tan(x)</dt>
+                <dd>Tangent of x (x is... well, you know)</dd>
+                <dt>asin(x)</dt>
+                <dd>Arc sine of x (in radians)</dd>
+                <dt>acos(x)</dt>
+                <dd>Arc cosine of x (in radians)</dd>
+                <dt>atan(x)</dt>
+                <dd>Arc tangent of x (in radians)</dd>
+                <dt>sqrt(x)</dt>
+                <dd>Square root of x. Result is NaN (Not a Number) if x is negative.</dd>
+                <dt>log(x)</dt>
+                <dd>Natural logarithm of x (not base-10).</dd>
+                <dt>abs(x)</dt>
+                <dd>Absolute value (magnitude) of x</dd>
+                <dt>ceil(x)</dt>
+                <dd>Ceiling of x - the smallest integer that's >= x.</dd>
+                <dt>floor(x)</dt>
+                <dd>Floor of x - the largest integer that's <= x</dd>
+                <dt>round(x)</dt>
+                <dd>X, rounded to the nearest integer.</dd>
+                <dt>exp(x)</dt>
+                <dd>ex (exponential/antilogarithm function with base e)</dd>
+                <dt>random(n)</dt>
+                <dd>Get a random number in the range [0, n). If n is zero, or not provided, it defaults to 1.</dd>
+                <dt>fac(n)</dt>
+                <dd>n!</dd>
+                <dt>min(a,b.,..)</dt>
+                <dd>Get the smallest ("minimum") number in the list</dd>
+                <dt>max(a,b,...)</dt>
+                <dd>Get the largest ("maximum") number in the list</dd>
+                <dt>pyt(a, b)</dt>
+                <dd>Pythagorean function, i.e. the c in "c^2 = a^2 + b^2"</dd>
+                <dt>pow(x, y)</dt>
+                <dd>This is exactly the same as "x^y".</dd>
+                <dt>atan2(y, x)</dt>
+                <dd>arc tangent of x/y. i.e. the angle between (0, 0) and (x, y) in radians</dd>
+                <dt>PI</dt>
+                <dd>Ratio of a circle's circumference to its diameter.</dd>
+            </dl>
+        </div>
+    </div>
+    <div id="footer">
+        &copy; 2013 math-overflow contributors. Licensed under the MIT license.
+        <br />
+        Entypo pictograms by Daniel Bruce — www.entypo.com
+    </div>
+    <div id="helpDialog">
+        <iframe id="helpFrame" src="http://help.math-overflow.fefrei.de/" width="100%" height="100%"></iframe>
+    </div>
+    <div id="cacheLoading" class="loading"></div>
+    <div id="drawing" class="loading"></div>
+    <div id="infinityIgnored" class="warning"></div>
+    <div id="parserError" class="warning"></div>
+</body>
+</html>

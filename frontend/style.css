@@ -1,0 +1,320 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+html, body
+{
+  height: 100%;
+  overflow: hidden;
+}
+
+body
+{
+	background: #fefefe;
+	margin: 0px;
+	overflow: hidden;
+	color: #444;
+	font-size: 0.9em;
+	font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+h1
+{
+ font-size: 2em;
+}
+
+h2
+{
+ font-size: 1.2em;
+}
+ul
+{
+  margin: 0 0 10px 20px;
+}
+
+ul li
+{
+ margin: 0 0 5px 0;
+}
+
+
+#container
+{
+    margin: 0px auto;
+}
+
+div.loading
+{
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    margin: -75px auto auto -25px;
+    top: 50%;
+    left: 50%;
+    opacity: 0.8;
+    z-index: 10;
+    background-size: 50px;
+    background-repeat: no-repeat;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+	border-radius: 7px;
+    display: none;
+}
+
+#cacheLoading
+{
+    background-image: url(src/loading.gif);
+}
+
+#drawing
+{
+    background-image: url(src/drawing.gif);
+}
+
+div.warning
+{
+    position: fixed;
+    width: 200px;
+    height: 150px;
+    margin: 0px auto auto -100px;
+    top: 50%;
+    left: 50%;
+    opacity: 0.8;
+    z-index: 1;
+    background-size: 200px 150px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+	border-radius: 10px;
+    display: none;
+}
+
+#infinityIgnored
+{
+    background-image: url(src/infinity-ignored.png);
+}
+
+#parserError
+{
+    background-image: url(src/parser-error.png);
+}
+
+
+#wrapper
+{
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -40px;
+}
+
+button, .ui-button
+{
+  vertical-align: middle;
+}
+
+input[type="text"] {
+	font-family: "Helvetica Neue",Arial,Helvetica,sans-serif !important;
+	font-size: 0.8em;
+}
+
+input.formula {
+	border: 1px solid #ccc;
+	margin: 5px 0px;
+	padding: 3px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius:4px;
+	width: 120px
+}
+
+input.formula:hover {
+	border-color: #b1b1b1;
+}
+
+input.formula:focus {
+	-moz-box-shadow: 0 0 3px #ccc;
+	-webkit-box-shadow: 0 0 3px #ccc;
+}
+
+#varA, #varB, #varC
+{
+  width: 100px;
+  height: 10px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#valA, #valB, #valC
+{
+  width: 30px;
+  text-align: center;
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.ui-spinner
+{
+	margin: 5px;
+	width: 60px;
+}
+
+.ui-button span
+{
+	font-size: 0.7em;
+}
+
+.ui-button-text-only .ui-button-text {
+  padding: 4px 7px;
+}
+
+sup,
+sub {
+	height: 0;
+	line-height: 1;
+	vertical-align: baseline;
+	_vertical-align: bottom;
+	position: relative;
+	font-size: 0.7em;
+	font-weight: bold;
+	
+}
+
+sup {
+	bottom: 0.6em;
+}
+
+sub {
+	top: .5em;
+}
+
+strong
+{
+	font-weight: bold;
+}
+
+p
+{
+margin-bottom: 10px;
+}
+
+dl {
+    padding: 0.5em;
+  }
+  dt {
+    float: left;
+    clear: left;
+    width: 100px;
+    text-align: right;
+    font-weight: bold;
+  }
+  dt:after {
+    content: ":";
+  }
+  dd {
+    margin: 0 0 0 110px;
+    padding: 0 0 0.5em 0;
+  }
+
+#controls
+{
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#c_inner
+{
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+	background: rgba(196, 196, 196, 0.3);
+	box-shadow: rgba(0, 0, 0, 0.3) 0 1px 9px,rgba(255, 255, 255, 0.2) 0 -1px 0 inset;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 9px,rgba(255, 255, 255, 0.2) 0 -1px 0 inset;
+	-moz-box-shadow: rgba(0,0,0,0.3) 0 1px 9px,rgba(255,255,255,0.2) 0 -1px 0 inset;
+	padding: 15px 15px 10px 15px;
+	
+}
+#c_show_hide
+{
+	margin: 10px 0px 0px 10px;
+}
+
+#footer
+{
+	width: 100%;
+	height: 30px;
+	background: none white;
+	font-size: 0.7em;
+	border-top: 1px solid rgba(0, 0, 0, 0.2);
+	padding: 5px;
+}
+
+.sep
+{
+	display: inline-block;
+	width: 100px;
+}
+
+.icon
+{
+vertical-align: middle;
+margin: 0 5px 3px 0;
+}
+
+#supportedTokensDialog
+{
+	font-size: 0.7em;
+}
+
+#helpDialog
+{
+    overflow: hidden;
+}
+
+div.group
+{
+    display: inline-block;
+}
+
+
+.ui-button .ui-icon.arrow-up
+{
+    background: url(src/arrow-up.png) 50% 50% no-repeat;
+    display: block;
+    margin-left: -2px;
+    background-size: 25px 25px;
+}
+
+.ui-button .ui-icon.arrow-down
+{
+    background: url(src/arrow-down.png) 50% 50% no-repeat;
+    display: block;
+    margin-left: -2px;
+    background-size: 25px 25px;
+}

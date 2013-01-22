@@ -1,0 +1,56 @@
+CACHE MANIFEST
+
+# main files
+index.html
+script.js
+style.css
+
+# jQuery
+src/jquery-ui-1.9.2.custom.min.css
+src/jquery-1.8.3.min.js
+src/jquery-ui-1.9.2.custom.min.js
+src/jquery.ui.touch-punch.min.js
+
+# Three.js
+src/three.min.js
+src/TrackballControls.js
+
+# Parsing
+src/parser.js
+
+# examples
+src/examples.js
+
+# images
+src/loading.gif
+src/drawing.gif
+src/formula.png
+src/draw.png
+src/grid.png
+src/export.png
+src/save.png
+src/camera.png
+src/drag.png
+src/help.png
+src/restore.png
+src/infinity-ignored.png
+src/parser-error.png
+src/delete.png
+src/examples.png
+src/variable.png
+src/arrow-up.png
+src/arrow-down.png
+
+src/images/ui-bg_flat_0_aaaaaa_40x100.png
+src/images/ui-bg_flat_75_ffffff_40x100.png
+src/images/ui-bg_glass_55_fbf9ee_1x400.png
+src/images/ui-bg_glass_65_ffffff_1x400.png
+src/images/ui-bg_glass_75_dadada_1x400.png
+src/images/ui-bg_glass_75_e6e6e6_1x400.png
+src/images/ui-bg_glass_95_fef1ec_1x400.png
+src/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+src/images/ui-icons_222222_256x240.png
+src/images/ui-icons_2e83ff_256x240.png
+src/images/ui-icons_454545_256x240.png
+src/images/ui-icons_888888_256x240.png
+src/images/ui-icons_cd0a0a_256x240.png
