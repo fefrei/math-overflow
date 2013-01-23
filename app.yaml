@@ -5,12 +5,12 @@ api_version: 1
 threadsafe: true
 
 handlers:
-- url: /math-overflow-preview/
+- url: /
   static_files: frontend/index.html
   upload: frontend/index.html
-- url: /math-overflow-preview/cache.manifest
+- url: /cache.manifest
   static_files: frontend/cache.manifest
   upload: frontend/cache.manifest
   mime_type: text/cache-manifest
-- url: /math-overflow-preview/
+- url: /
   static_dir: frontend
