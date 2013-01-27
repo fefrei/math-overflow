@@ -1,0 +1,4 @@
+# math-overflow robots.txt
+
+User-agent: *
+Disallow:
